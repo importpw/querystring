@@ -1,5 +1,5 @@
 #!/bin/bash
-querystring.escape() {
+querystring_escape() {
   local input="$*"
   local length="${#input}"
   for (( i = 0; i < length; i++ )); do
@@ -12,4 +12,4 @@ querystring.escape() {
 }
 
 # https://stackoverflow.com/a/37840948/376773
-querystring.unescape() { : "${*//+/ }"; echo -e "${_//%/\\x}"; }
+querystring_unescape() { : "${*//+/ }"; printf "%b" "${_//%/\\x}"; }
