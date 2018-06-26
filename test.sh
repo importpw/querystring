@@ -11,7 +11,7 @@ assert_equal "$(querystring_unescape "hello%20world")" "hello world"
 
 
 test_escape_unescape() {
-  local input="${1}"
+  local input="$*"
   local escaped="$(querystring_escape "${input}")"
   local normal="$(querystring_unescape "${escaped}")"
   assert_equal "${input}" "${normal}"
