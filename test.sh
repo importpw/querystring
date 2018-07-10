@@ -1,5 +1,6 @@
 #!/bin/sh
-eval "`curl -sfLS import.pw`"
+set -eu
+eval "`curl -fsSL import.pw`"
 source ./querystring.sh
 import "import.pw/assert@2.1.1"
 
