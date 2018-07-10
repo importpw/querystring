@@ -1,12 +1,13 @@
 #!/bin/sh
-eval "`curl -sfLS import.pw`"
+set -eu
+eval "`curl -fsSL import.pw`"
 source ./querystring.sh
 import "import.pw/assert@2.1.1"
 
 assert_equal "$(querystring_escape "!")" "%21"
 assert_equal "$(querystring_escape hello world)" "hello%20world"
 
-assert_equal "$(querystring_unescape "%21")" "!"
+assert_equal "$(querystring_unescape "%21")" "@"
 assert_equal "$(querystring_unescape "hello%20world")" "hello world"
 
 
