@@ -1,4 +1,3 @@
-#!/bin/bash
 querystring_escape() {
   local input=
   if [ $# -gt 0 ]; then
