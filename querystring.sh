@@ -6,9 +6,7 @@ querystring_escape() {
     # assume stdin
     input="$(cat)"
   fi
-  local length="${#input}"
-  for (( i = 0; i < length; i++ )); do
-    local c="${input:i:1}"
+  printf "%s" "$input" | while IFS='' read -n 1 -r c; do
     if [ "$c" = "!" ] || [ "$c" = "(" ] || [ "$c" = ")" ] || [ "$c" = "'" ] || [ "$c" = "*" ]; then
       printf "$c"
     else
@@ -21,4 +19,7 @@ querystring_escape() {
 }
 
 # https://stackoverflow.com/a/37840948/376773
-querystring_unescape() { : "${*//+/ }"; printf "%b" "${_//%/\\x}"; }
+querystring_unescape() {
+  local input="${*//+/ }"
+  printf '%b' "${input//%/\\x}"
+}

@@ -141,7 +141,7 @@ chr() {
 }
 
 #for i in {0..127}; do
-for i in {1..127}; do
+for i in `seq 1 127`; do
   val="$(eval "echo \"\$ascii_$i\"")"
 
   [ $i -eq 10 ] && continue # fails for some reason?
