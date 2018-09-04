@@ -1,9 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env import
 set -eu
-test -f "$HOME/.import.sh" || curl -sfS https://import.pw > "$HOME/.import.sh"
-source "$HOME/.import.sh"
 source ./querystring.sh
-import "import.pw/assert@2.1.1"
+import assert@2.1.1
 
 # These were generated from Node.js `querystring.escape()`
 ascii_0="%00"
