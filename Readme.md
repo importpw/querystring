@@ -5,7 +5,7 @@ Shell script helper functions for encoding/decoding query-string data.
 ## Example
 
 ```bash
-#!/usr/bin/import
+#!/usr/bin/env import
 
 import querystring@1.1.0
 
