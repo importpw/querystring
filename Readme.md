@@ -5,8 +5,7 @@ Shell script helper functions for encoding/decoding query-string data.
 ## Example
 
 ```bash
-#!/bin/sh
-eval "`curl -sfLS import.pw`"
+#!/usr/bin/import
 
 import querystring@1.1.0
 
