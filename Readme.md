@@ -1,6 +1,6 @@
 # querystring
 
-Shell script helper functions for encoding/decoding query-string data.
+Shell script helper functions for encoding/decoding querystring data.
 
 
 ## Example
@@ -37,6 +37,7 @@ echo hello world | querystring_escape
 # hello%20world
 ```
 
+
 ### `querystring_unescape $input`
 
 Decodes querystring-encoded content.
@@ -48,4 +49,25 @@ import querystring@1.1.1
 
 querystring_unescape "hello%20world"
 # hello world
+```
+
+
+### `querystring_parse $qs $var1 <... $var2>`
+
+Parses the provided `qs` querystring and sets the requested shell variables.
+
+```bash
+#!/usr/bin/env import
+import querystring@1.1.1
+
+querystring_parse "one=1&two=2&three=3" one two
+
+echo "$one"
+# 1
+
+echo "$two"
+# 2
+
+echo "$three"
+# Not set, since it was not requested in `querystring_parse`
 ```
