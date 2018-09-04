@@ -168,3 +168,11 @@ test_escape_unescape a
 test_escape_unescape foo123
 test_escape_unescape Hello World
 test_escape_unescape " !@#$%^&*() "
+
+
+
+qs="fieldname1=value1&fieldname2=value2&fieldname3=value3"
+querystring_parse "$qs" fieldname1 fieldname2
+assert_equal "$fieldname1" value1
+assert_equal "$fieldname2" value2
+assert_equal "${fieldname3-}" "" # not set since it was not requested
