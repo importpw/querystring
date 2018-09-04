@@ -21,6 +21,13 @@ querystring_escape() {
 
 # Credit: https://stackoverflow.com/a/37840948/376773
 querystring_unescape() {
-  local input="${*//+/ }"
+  local input=
+  if [ $# -gt 0 ]; then
+    input="$*"
+  else
+    # assume stdin
+    input="$(cat)"
+  fi
+  input="${input//+/ }"
   printf '%b' "${input//%/\\x}"
 }

@@ -155,6 +155,7 @@ assert_equal "$(querystring_unescape "%21")" "!"
 assert_equal "$(querystring_unescape "hello%20world")" "hello world"
 assert_equal "$(querystring_unescape "hello+world")" "hello world"
 
+assert_equal "$(echo "hello+world" | querystring_unescape)" "hello world"
 
 test_escape_unescape() {
   local input="$*"
