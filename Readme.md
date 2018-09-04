@@ -39,7 +39,7 @@ echo hello world | querystring_escape
 
 ### `querystring_unescape $input`
 
-Decodes querystring-encoded content
+Decodes querystring-encoded content.
 Similar to `decodeURIComponent()` in JavaScript.
 
 ```bash
