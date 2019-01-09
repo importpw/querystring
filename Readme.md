@@ -20,6 +20,23 @@ querystring_unescape "hello%20world"
 
 ## API
 
+### `querystring $path`
+
+Outputs the querystring portion of the provided request URL. Once you have the
+querystring, it may be parsed with `querystring_parse`.
+
+```bash
+#!/usr/bin/env import
+import querystring@1.2.0
+
+querystring "/api/hello"
+# (empty)
+
+querystring "/api/hello?name=rick"
+# name=rick
+```
+
+
 ### `querystring_escape $input`
 
 Encodes the input with querystring percent-encoding.

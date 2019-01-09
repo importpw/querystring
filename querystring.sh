@@ -1,3 +1,9 @@
+querystring() {
+  local path
+  path="$(echo "$1" | cut -d"?" -f1)"
+  echo "${1:$(( ${#path} + 1 ))}"
+}
+
 querystring_escape() {
   local input=
   if [ $# -gt 0 ]; then

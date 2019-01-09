@@ -3,6 +3,13 @@ set -eu
 source ./querystring.sh
 import assert@2.1.3
 
+# querystring()
+assert_equal "$(querystring "/foo")" ""
+assert_equal "$(querystring "/foo?")" ""
+assert_equal "$(querystring "/foo?bar")" "bar"
+assert_equal "$(querystring "/foo?bar=baz&one=two")" "bar=baz&one=two"
+
+
 # These were generated from Node.js `querystring.escape()`
 ascii_0="%00"
 ascii_1="%01"
@@ -171,6 +178,7 @@ test_escape_unescape " !@#$%^&*() "
 
 
 
+# querystring_parse()
 qs="fieldname1=value1&fieldname2=value2&fieldname3=value3"
 querystring_parse "$qs" fieldname1 fieldname2
 assert_equal "$fieldname1" value1
