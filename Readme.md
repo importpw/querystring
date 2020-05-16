@@ -7,8 +7,7 @@ Shell script helper functions for encoding/decoding querystring data.
 
 ```bash
 #!/usr/bin/env import
-
-import querystring@1.3.0
+import "querystring@1.3.0"
 
 querystring_escape "hello world"
 # hello%20world
@@ -27,7 +26,7 @@ querystring, it may be parsed with `querystring_parse`.
 
 ```bash
 #!/usr/bin/env import
-import querystring@1.3.0
+import "querystring@1.3.0"
 
 querystring "/api/hello"
 # (empty)
@@ -44,7 +43,7 @@ Similar to `encodeURIComponent()` in JavaScript.
 
 ```bash
 #!/usr/bin/env import
-import querystring@1.3.0
+import "querystring@1.3.0"
 
 querystring_escape hello world
 # hello%20world
@@ -62,7 +61,7 @@ Similar to `decodeURIComponent()` in JavaScript.
 
 ```bash
 #!/usr/bin/env import
-import querystring@1.3.0
+import "querystring@1.3.0"
 
 querystring_unescape "hello%20world"
 # hello world
@@ -75,7 +74,7 @@ Parses the provided `qs` querystring and sets the requested shell variables.
 
 ```bash
 #!/usr/bin/env import
-import querystring@1.3.0
+import "querystring@1.3.0"
 
 querystring_parse "one=1&two=2&three=3" one two
 
